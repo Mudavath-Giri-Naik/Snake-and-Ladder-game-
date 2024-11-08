@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f7fa;
+  padding: 10px;
+}
+
+h1 {
+  margin: 20px 0;
+  color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-template-rows: repeat(10, 50px);
+  gap: 2px;
+  margin: 20px;
+  border: 3px solid #444;
+  animation: boardEntrance 1s ease-out;
+}
+
+@keyframes boardEntrance {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #333;
+  border: 1px solid #ddd;
+  background-color: #e8f1f8;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cell.snake {
+  background-color: red; /* Red color for snake cells */
+}
+
+.cell.ladder {
+  background-color: #bc6e2c; /* Brick color for ladder cells */
+}
+
+.cell.player {
+  background-color: #42a5f5;
+  color: #fff;
+  box-shadow: 0 0 10px #42a5f5, 0 0 20px #42a5f5;
+  transform: scale(1.1);
+}
+
+/* Unique style for the 100th cell */
+.cell#cell-100 {
+  background-color: #4caf50; /* Green color for the final cell */
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #388e3c;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+#rollDiceBtn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #1675c3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px #3883c2;
+  transition: transform 0.1s ease;
+}
+
+#rollDiceBtn:hover {
+  background-color: #1e88e5;
+}
+
+#rollDiceBtn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px #3883c2;
+}
+
+/* Popup styling */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  
+  justify-content: center;
+}
+
+.popup-content {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  
+  max-width: 400px;
+  text-align: center;
+  animation: popupShow 0.3s ease;
+}
+
+@keyframes popupShow {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.hidden {
+  display: none;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  background-color: #42a5f5;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #1e88e5;
+}
+
+button:active {
+  background-color: #1976d2;
+}
+
+/* Choices button style */
+.choice-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #7bc3e1;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.choice-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(20, 50px);
+  }
+
+  .controls {
+    margin-top: 10px;
+  }
+
+  #rollDiceBtn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}

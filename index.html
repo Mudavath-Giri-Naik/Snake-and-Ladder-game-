@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake and Ladder Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Snake and Ladder Game</h1>
+  <div class="game-container">
+    <div class="board" id="board"></div>
+    <div class="controls">
+      <button id="rollDiceBtn">Roll Dice</button>
+      <p>Dice: <span id="diceResult">0</span></p>
+      <p>Player Position: <span id="playerPosition">1</span></p>
+    </div>
+  </div>
+
+  <!-- Question Popup -->
+  <div id="questionPopup" class="popup hidden">
+    <div class="popup-content">
+      <h2>Answer the Question</h2>
+      <p id="questionText">Placeholder for the question text</p>
+      <div id="choicesContainer"></div>
+      <button id="submitAnswerBtn">Submit Answer</button>
+    </div>
+  </div>
+
+  <!-- Audio Files -->
+  <audio id="diceSound" src="dice.mp3"></audio>
+  <audio id="ladderSound" src="ladder.mp3"></audio>
+  <audio id="snakeSound" src="snake.mp3"></audio>
+  <audio id="winSound" src="won.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
